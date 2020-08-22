@@ -6,22 +6,45 @@ import javax.persistence.Persistence;
 
 public class JPAUtil {
 
-	/*private EntityManager entityManager;
+	private static JPAUtil instance;
 
-	public EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("livraria-pu");
-		entityManager = factory.createEntityManager();
-		return entityManager;
-	}*/
+	private EntityManagerFactory entityManagerFactory;
 
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("livraria-pu");
-
-	public EntityManager getEntityManager() {
-		return emf.createEntityManager();
+	public JPAUtil() {
 	}
 
-	public void close(EntityManager em) {
-		em.close();
+	public static JPAUtil getInstance() {
+		if (instance == null) {
+			instance = new JPAUtil();
+		}
+		return instance;
 	}
 
+	public void createEntityManagerFactory() {
+		if (entityManagerFactory == null || !entityManagerFactory.isOpen()) {
+			entityManagerFactory = Persistence.createEntityManagerFactory("default");
+		}
+	}
+
+	public EntityManager getEntityManager() {
+		try {
+			createEntityManagerFactory();
+			return entityManagerFactory.createEntityManager();
+		} catch (Exception e) {
+			throw new RuntimeException("Ocorreu um erro ao criar um EntityManager.", e);
+		}
+	}
+
+	public void destroy() {
+		if (entityManagerFactory != null && entityManagerFactory.isOpen()) {
+			entityManagerFactory.close();
+		}
+		entityManagerFactory = null;
+		instance = null;
+	}
+
+/*	public static void main(String[] args) {
+		JPAUtil.getInstance().getEntityManager();
+	}
+*/	
 }
