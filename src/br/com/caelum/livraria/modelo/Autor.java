@@ -38,4 +38,19 @@ public class Autor {
 		this.nome = nome;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = obj != null;
+		result = result && getClass().isInstance(obj);
+		result = result && hashCode() > 0;
+		result = result && obj.hashCode() > 0;
+		result = result && hashCode() == obj.hashCode();
+		return result;
+	}
+
+	@Override
+	public int hashCode() {
+		return getId() != null ? getId().hashCode() : super.hashCode();
+	}
+
 }

@@ -18,16 +18,9 @@ public class AutorBean {
 		System.out.println("Gravando Autor: " + this.autor.getNome());
 
 		new DAO<Autor>(Autor.class).adiciona(this.autor);
+
+		this.autor = new Autor();
 	}
 
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
-	}
-
+	
 }

@@ -1,6 +1,9 @@
 package br.com.caelum.livraria.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 public class DAO<T> {
 
@@ -33,5 +36,12 @@ public class DAO<T> {
 		getEntityManager().getTransaction().commit();
 		getEntityManager().close();
 	}
+
+	public List<T> listarTodos() {
+		String jpql = "FROM " + classe + " e";
+		TypedQuery<T> query = getEntityManager().createQuery(jpql, classe);
+		return query.getResultList();
+	}
+	
 
 }

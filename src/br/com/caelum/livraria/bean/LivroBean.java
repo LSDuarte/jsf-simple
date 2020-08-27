@@ -1,8 +1,11 @@
 package br.com.caelum.livraria.bean;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
 import br.com.caelum.livraria.dao.DAO;
+import br.com.caelum.livraria.modelo.Autor;
 import br.com.caelum.livraria.modelo.Livro;
 
 @ManagedBean
@@ -14,6 +17,11 @@ public class LivroBean {
 		return livro;
 	}
 
+	public List<Autor> getAutores(){
+		return new DAO<Autor>(Autor.class).listarTodos();
+	}
+	
+	
 	public void gravar() {
 		System.out.println("Gravando Livro: " + this.livro.getTitulo());
 
@@ -22,16 +30,9 @@ public class LivroBean {
 		}
 
 		new DAO<Livro>(Livro.class).adiciona(this.livro);
-	}
-	
-	@Override
-	public int hashCode() {
-		return super.hashCode();
+
+		this.livro = new Livro();
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
-	}
 	
 }

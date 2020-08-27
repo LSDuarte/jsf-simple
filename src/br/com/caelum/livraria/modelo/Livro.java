@@ -21,17 +21,16 @@ public class Livro {
 
 	@Column(name = "titulo")
 	public String titulo;
-	
+
 	@Column(name = "isbn")
 	public String isbn;
-	
+
 	@Column(name = "preco")
 	public double preco;
-	
+
 	@Column(name = "dataLancamento")
 	public String dataLancamento;
 
-	
 	@ManyToMany
 	private List<Autor> autores = new ArrayList<Autor>();
 
@@ -86,4 +85,20 @@ public class Livro {
 	public final void setDataLancamento(String dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = obj != null;
+		result = result && getClass().isInstance(obj);
+		result = result && hashCode() > 0;
+		result = result && obj.hashCode() > 0;
+		result = result && hashCode() == obj.hashCode();
+		return result;
+	}
+
+	@Override
+	public int hashCode() {
+		return getId() != null ? getId().hashCode() : super.hashCode();
+	}
+
 }
