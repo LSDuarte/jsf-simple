@@ -39,7 +39,7 @@ public class DAO<T> {
 
 	public List<T> listarTodos() {
 		String jpql = "FROM " + classe + " e";
-		TypedQuery<T> query = getEntityManager().createQuery(jpql, classe);
+		TypedQuery<T> query = getEntityManager().createQuery(jpql,classe);
 		return query.getResultList();
 	}
 	

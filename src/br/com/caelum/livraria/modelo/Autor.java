@@ -22,19 +22,19 @@ public class Autor {
 	public Autor() {
 	}
 
-	public final Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public final void setId(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public final String getNome() {
+	public String getNome() {
 		return "Autor " + nome;
 	}
 
-	public final void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 

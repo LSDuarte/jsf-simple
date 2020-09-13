@@ -10,7 +10,6 @@ public class ConnectionFactory {
 	private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=livraria;integratedSecurity=true";
 
 	public static void main(String[] args) throws SQLException {
-
 		try {
 			Class.forName(DRIVER);
 			Connection con = DriverManager.getConnection(URL);
@@ -22,5 +21,4 @@ public class ConnectionFactory {
 		}
 		
 	}
-
 }

@@ -50,43 +50,43 @@ public class Livro {
 	public Livro() {
 	}
 
-	public final Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public final void setId(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public final String getTitulo() {
+	public String getTitulo() {
 		return titulo;
 	}
 
-	public final void setTitulo(String titulo) {
+	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
-	public final String getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public final void setIsbn(String isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
-	public final double getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public final void setPreco(double preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 
-	public final Calendar getDataLancamento() {
+	public Calendar getDataLancamento() {
 		return dataLancamento;
 	}
 
-	public final void setDataLancamento(Calendar dataLancamento) {
+	public void setDataLancamento(Calendar dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
 
