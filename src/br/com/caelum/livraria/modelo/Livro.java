@@ -1,6 +1,7 @@
 package br.com.caelum.livraria.modelo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Livro")
@@ -29,7 +32,8 @@ public class Livro {
 	public double preco;
 
 	@Column(name = "dataLancamento")
-	public String dataLancamento;
+	@Temporal(TemporalType.DATE)
+	public Calendar dataLancamento = Calendar.getInstance();
 
 	@ManyToMany
 	private List<Autor> autores = new ArrayList<Autor>();
@@ -78,11 +82,11 @@ public class Livro {
 		this.preco = preco;
 	}
 
-	public final String getDataLancamento() {
+	public final Calendar getDataLancamento() {
 		return dataLancamento;
 	}
 
-	public final void setDataLancamento(String dataLancamento) {
+	public final void setDataLancamento(Calendar dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
 

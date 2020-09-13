@@ -43,5 +43,9 @@ public class DAO<T> {
 		return query.getResultList();
 	}
 	
+	public Class<T> buscaPorId(Integer Id) {
+		return null;
+	}
+	
 
 }
