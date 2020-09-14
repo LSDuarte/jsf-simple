@@ -34,7 +34,7 @@
 		</fieldset>
 		
 		<fieldset>
-			<legend> Dados do Autor</legend>
+			<legend>Dados do Autor</legend>
 				<h:outputLabel value="Selecione Autor:" for="autor"/>
 				<h:selectOneMenu value="#{livroBean.autorId}" id="autor">
 					<f:selectItems value="{livroBean.autores}" var="autor" 
@@ -42,7 +42,10 @@
 				</h:selectOneMenu>
 				<h:commandButton value="Gravar Autor" action="#{livroBean.gravarAutor}">
 					<f:ajax execute="autor" render="tabelaAutores"/>
-				</h:commandButton>	
+				</h:commandButton>
+				
+				<br />
+				<h:commandLink value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true"/>
 				
 				<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores">
 					<h:column> 

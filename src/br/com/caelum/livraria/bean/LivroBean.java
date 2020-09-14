@@ -1,5 +1,6 @@
 package br.com.caelum.livraria.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -16,7 +17,9 @@ import br.com.caelum.livraria.modelo.Livro;
 
 @ManagedBean
 @ViewScoped
-public class LivroBean {
+public class LivroBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Livro livro = new Livro();
 	private Integer autorId;
@@ -58,6 +61,11 @@ public class LivroBean {
 		}
 		new DAO<Livro>(Livro.class).adiciona(this.livro);
 		this.livro = new Livro();
+	}
+	
+	public String formAutor() {
+		System.out.println("Chamando o formulário do Autor");
+		return "autor?faces-redirect=true";
 	}
 
 	public void comecaComDigitoUm(FacesContext fc, UIComponent component, Object valueObject) throws ValidationException {
