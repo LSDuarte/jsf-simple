@@ -35,5 +35,7 @@
 	<classpathentry kind="lib" path="C:/Dev/projetos-eclipse/jsf-simple/WebContent/WEB-INF/lib/stax-ex-1.8.jar"/>
 	<classpathentry kind="lib" path="C:/Dev/projetos-eclipse/jsf-simple/WebContent/WEB-INF/lib/txw2-2.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Dev/libs/sqljdbc42.jar"/>
+	<classpathentry kind="lib" path="C:/Dev/libs/all-themes-1.0.10.jar"/>
+	<classpathentry kind="lib" path="C:/Dev/libs/primefaces-7.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
